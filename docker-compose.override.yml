@@ -1,0 +1,8 @@
+# Local override (not part of upstream career-ops): run as the host user so
+# files the container writes (data/, reports/, output/) stay owned by you.
+# uid/gid 1000 is also the image's `pwuser`, so HOME=/home/pwuser exists.
+services:
+  career-ops:
+    user: "1000:1000"
+    environment:
+      - HOME=/home/pwuser
